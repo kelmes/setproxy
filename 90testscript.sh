@@ -3,11 +3,11 @@
 IF=$1
 STATUS=$2
  
-if [ "$IF" == "wlp4s0" ]
+if [ "$IF" == "<interface name>" ]
 then
 	case "$2" in
 		up)
-		/home/kieran/src/setproxy.sh
+		<path/to/script>
 		logger -s "setting proxy for network"
 		command1
 		;;

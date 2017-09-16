@@ -12,13 +12,13 @@ MyNetwork=`iwgetid -r`
 #
 #
 # Below is the code that actually make changes to NetworkManagers config-files
-if [[ $MyNetwork == "default" ]]; then
+if [[ $MyNetwork == "<network name>" ]]; then
         if [[ ! -f "/etc/apt/apt.conf.d/02proxy" ]]; then
-                echo 'Acquire::http { Proxy "http://nas.lan:3142"; };' | tee /etc/apt/apt.conf.d/02proxy
+                echo 'Acquire::http { Proxy "http://<proxy-location:port>"; };' | tee /etc/apt/apt.conf.d/02proxy
         fi
-elif [[ $MyNetwork == "DONOTCONNECT" ]]; then
+elif [[ $MyNetwork == "<other network name>" ]]; then
         if [[ ! -f "/etc/apt/apt.conf.d/02proxy" ]]; then
-                echo 'Acquire::http { Proxy "http://nas.lan:3142"; };' | tee /etc/apt/apt.conf.d/02proxy
+                echo 'Acquire::http { Proxy "http://<proxy-location:port>"; };' | tee /etc/apt/apt.conf.d/02proxy
         fi
 else
         if [[ -f "/etc/apt/apt.conf.d/02proxy" ]]; then
